@@ -1,0 +1,79 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{# Recuperando el campo AutoReproducir  #}
+{% if particle.AutoReproducir %}
+{% set AutoReproducir = "true" %}
+{% else %}
+{% set AutoReproducir = "false" %}	
+{% endif %}
+
+{# Recuperando el campo Patallacompleta  #}
+{% if particle.PantallaCompleta %}
+{% set PantallaCompleta = "true" %}
+{% else %}
+{% set PantallaCompleta = "false" %}	
+{% endif %}
+
+
+{% block particle %}
+	<div class="g-media-plyr g-{{id}}">
+
+		{# Título de la partícula #}
+		{% if particle.Titulo %}
+			<{{particle.EtiquetaTitulo}}{% if particle.ClaseCssTitulo %} class="{{particle.ClaseCssTitulo}}"{% endif %}>
+			{{-particle.Titulo-}}
+			</{{particle.EtiquetaTitulo}}>
+		{% endif %}
+
+		{# Videos Propios en MP4 o WEBM #}
+		{% if particle.VideoMp4 or particle.VideoWebm %}		
+		<video {% if particle.ImagenPrevia %}poster="{{url(particle.ImagenPrevia)}}"{% endif %} controls>
+		  {% if particle.VideoMp4 %}		  
+		  <source src="{{url(particle.VideoMp4)}}" type="video/mp4">
+		  {% endif %}		  
+		  {% if particle.VideoWebm %}
+		  <source src="{{url(particle.VideoWebm)}}" type="video/webm">
+		  {% endif %}
+		</video>
+		{% endif %}
+
+		{# Audios Propios en MP3 o OGG #}
+		{% if particle.AudioMp3 or particle.AudioOgg %}
+		<audio controls>
+			{% if particle.AudioMp3 %}
+		    <source src="{{url(particle.AudioMp3)}}" type="audio/mp3">
+		    {% endif %}
+			{% if particle.AudioOgg %}
+		    <source src="{{url(particle.AudioOgg)}}" type="audio/ogg">
+		    {% endif %}
+		</audio>
+		{% endif %}
+
+		{# Videos de YOUTUBE O VIMEO #}
+		{% if 'youtube' in particle.UrlVideo %}
+		<div data-type="youtube" data-video-id="{{url(particle.UrlVideo)}}"></div>
+		{% endif %}
+		{% if 'vimeo' in particle.UrlVideo %}
+		<div data-type="vimeo" data-video-id="{{url(particle.UrlVideo)}}"></div>
+		{% endif %}		
+		
+	</div>
+	{% assets in 'head' with { priority: 0 } %}
+	<link rel="stylesheet" href="{{ url('gantry-theme://css/plyr.css') }}" type="text/css"/>
+	{% endassets %}
+
+	{% assets in 'footer' with { priority: 0 } %}
+	<script type="text/javascript" src="{{ url('gantry-theme://js/plyr.js') }}"></script>
+	<script>
+	var player = plyr.setup('.g-{{id}}',{
+		autoplay: {{AutoReproducir}},
+		fullscreen:{enabled:{{PantallaCompleta}}},
+		iconUrl:"{{ url('gantry-theme://css/plyr.svg') }}"
+	});
+	
+	
+
+	</script>
+
+	{% endassets %}
+{% endblock %}

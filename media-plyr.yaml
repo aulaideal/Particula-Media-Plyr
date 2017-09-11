@@ -1,0 +1,114 @@
+name: Media Plyr
+type: particle
+icon: fa-play-circle-o
+
+configuration:
+  caching:
+    type: static
+
+
+form:
+  fields:
+
+    enabled:
+      type: input.checkbox
+      label: Publicado
+      description: 'Habilitar o deshabilitar esta partícula'
+      default: true
+
+    Titulo:
+      type: input.text
+      label: Título
+      description: 'Ingrese  un título para la partícula.'
+      placeholder: 'Ejem: Título del video'
+
+    EtiquetaTitulo:
+      type: select.select
+      label: Etiqueta del título
+      description: 'Defina una etiqueta par el título.'
+      default: h3
+      options:
+        h1: h1
+        h2: h2
+        h3: h3
+        h4: h4
+        h5: h5
+        h6: h6
+
+    ClaseCssTitulo:
+      type: input.selectize
+      label: Clase CSS del título
+      description: 'Ingrese sus clases CSS'
+
+    Separador1:
+     type: separator.note 
+     class: alert alert-success 
+     content: '<h4>Subir videos</h4>'
+
+    VideoMp4: 
+      type: input.videopicker 
+      label: Video MP4
+      description: 'Carge y seleccione un video en formato MP4'
+      filter: '.(mp4)'
+      root: 'gantry-media://videos'
+
+    VideoWebm: 
+      type: input.videopicker 
+      label: ¿Video en Webm?
+      description: 'Si deseas que tu video se muestre en todos los navegadores y dispositivos móbiles puedes subir un video en el formato WEBM.'
+      filter: '.(webm)'
+      root: 'gantry-media://videos'
+
+    ImagenPrevia:
+      type: input.imagepicker
+      label: Imagen Previa
+      description: 'Elija una imagen previa para su video (Sólo disponible para videos alijados en tu servidor)'
+
+    Separador2:
+     type: separator.note 
+     class: alert alert-success 
+     content: '<h4>Subir Audios</h4>'
+
+    AudioMp3:
+      type: input.filepicker
+      label: Audio MP3
+      description: 'Carge y seleccione un audio en formato MP3'
+      icon: fa-bullhorn
+      filter: '.(mp3)'
+      root: 'gantry-media://audios'
+
+    AudioOgg:
+      type: input.filepicker
+      label: ¿Audio en Ogg?
+      description: 'Si deseas que tu audio se muestre en todos los navegadores y dispositivos móbiles puedes subir un audio en el formato OGG.'
+      icon: fa-bullhorn
+      filter: '.(ogg)'
+      root: 'gantry-media://audios'
+
+    Separador3:
+     type: separator.note 
+     class: alert alert-success 
+     content: '<h4>Videos en Youtube o Vimeo</h4>'
+
+    UrlVideo:
+      type: input.url 
+      label: URL del video 
+      description: 'Ingrese la url de tu video alojado en Youtube o Vimeo.' 
+      placeholder: 'Ejem: https://vimeo.com/93943993'
+    
+    Separador4:
+      type: separator.note 
+      class: alert alert-success 
+      content: '<h4>Opciones del reproductor</h4>'
+
+    AutoReproducir:
+      type: enable.enable
+      label: ¿Auto Reproducir?
+      description: '¿Desea autoreproducir el audio o video?.'
+      default: false
+
+    PantallaCompleta:
+      type: enable.enable
+      label: ¿Patalla completa?
+      description: '¿Desea mostrar un boton para visualizar el contenido a Pantalla completa?.'
+      default: true
