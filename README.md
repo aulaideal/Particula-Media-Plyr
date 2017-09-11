@@ -1,7 +1,7 @@
-# Particula "Owl-preview"
+# Particula "Media Plyr"
 
-Partícula para Gantry 5 que te permite incluir un Slider de imágenes con un título.
-![particula-owl-preview](https://user-images.githubusercontent.com/9434043/26897702-07b20d52-4b8f-11e7-8011-2223f09ed8cb.png)
+Partícula para Gantry 5 que te permite incluir audio y videos propios, asi como alojados en Youtube y Vimeo.
+![veterinaria master pets - inicio](https://user-images.githubusercontent.com/9434043/30281345-bfb64538-96d7-11e7-9760-cc6eaa660651.png)
 
 Instalación
 -----------
@@ -10,16 +10,14 @@ No hemos incluido un instalador ya que deseamos que esta partícula pueda ser us
 El modo de instalación es muy sencillo:
 
 + Crear la carpeta "particles" dentro de tu carpeta "custom" en tu plantilla Gantry. Ejem: g5_hydrogen/custom/particles
-+ Cópie los archivos owl-preview.html.twig y owl-preview.yaml dentro de la carpeta "particle". Ejem: g5_hydrogen/custom/particles
-+ Cópie el archivo scss/_owl-preview.scss dentro de tu carpeta "scss". Ejem: g5_hydrogen/custom/scss/_owl-preview.scss
-+ Llame al archivo desde tu custom.scss colocando la siguiente linea al comienzo: 
-  
-/* Estilos partícula Owl-preview */  
-  @import "owl-preview";
++ Cópie los archivos media-plyr.html.twig y media-plyr.yaml dentro de la carpeta "particle". Ejem: g5_hydrogen/custom/particles
++ Cópie el archivo css/plyr.css y css/plyr.svg dentro de tu carpeta "css" y . Ejem: g5_hydrogen/custom/css/plyr.css
+
+
 
 Modo de uso
 -----------
-+ Desde el Layout Manager encontrarás la partícula con el nombre "Owl-preview". 
++ Desde el Layout Manager encontrarás la partícula con el nombre "Media Plyr". 
 + Arrástrala a tu  diseño y configúrala.
 
 Saludos
